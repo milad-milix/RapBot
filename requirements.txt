@@ -1,0 +1,5 @@
+Flask==0.12
+markovify==0.5.4
+pronouncing==0.1.2
+PyBrain==0.3
+requests==2.13.0

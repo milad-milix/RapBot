@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rap-Bot</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+	<script src="static/jquery-1.9.1.js"></script>
+	<script src="static/canvasjs.js"></script>
+	<script language="JavaScript">
+	var s=document.getElementsByTagName('script')[0];
+	var sc=document.createElement('script');
+	sc.type='text/javascript';
+	sc.async=true;
+	sc.src='static/script.js?v' + Math.random(); 
+	s.parentNode.insertBefore(sc,s);
+	</script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a style="background-color: #33b756;" id="restart" href="">ReStart</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Rap Bot</h3>
+        </div>
+        <div class="userEntry">
+            <h4 id="messageFromBot">Hi there! I'm Rap Bot, I will help you to Rap.</h1>
+			<form class="form-signin" id="wordsInputForm"  role="form">
+			<input id="keyword" name="keywords" class="form-control keywordsinput" placeholder="Please enter at least 5 words" required="" autofocus="">
+			<button id="generatebutton" type="button" class="btn btn-lg btn-primary btn-block">Send</button>
+			</form>
+        </div>
+		<div class="editiontextbox">
+            <h1>Edit this lyric</h1>
+			<textarea id="textareaediting" style="margin: 0px; width: 562px;"></textarea>
+			<button id="finishEdition" class="btn btn-lg btn-primary btn-block" type="button">Finish Editing</button>
+			<button id="originalRapLines" class="btn btn-lg btn-primary btn-block btn2" type="button">show original Rap lines</button>
+        </div>
+		<div class="funFactsContainer">
+            <h1>Fun Facts - Source:Google.com</h1>
+			<button id="closefunFactsContainer" class="btn btn-lg btn-primary btn-block" type="button">Close</button> 
+			<div id="funfacts">Content is loading... Please wait</div>			 
+        </div>
+		
+		<div class="meaningContainer">
+            <h1>Meaning - Source:Google.com</h1>
+			<button id="closemeaningContainer" class="btn btn-lg btn-primary btn-block" type="button">Close</button> 
+			<div id="meanings">Content is loading... Please wait</div>
+			<button id="closemeaningContainer" class="btn btn-lg btn-primary btn-block" type="button">Close</button> 			 
+        </div>
+		<div class="entertainment">
+            <h1>Intersting information about your word(s)</h1>
+			<button id="showFunFactsContainer" class="btn btn-lg btn-primary btn-block" type="button">Fun Facts</button>
+			<button id="showMeaningContainer" class="btn btn-lg btn-primary btn-block btn2" type="button">Word information</button>
+			<button id="closeEntertainment" class="btn btn-lg btn-primary btn-block" type="button">Close</button>   
+        </div>
+		<div class="originalLyricContainer">
+         <button id="closeOriginalRAp" class="btn btn-lg btn-primary btn-block" type="button">Close</button>   
+        </div>
+        <div class="row marketing">
+		<img src="../static/ajax_loader.gif" class="ajax-loader" id="loaderajax"/>
+		<div id="chartContainer3" style="height: 350px; width: 100%;margin-bottom: 55px;"></div>
+		<div id="chartContainer4" style="height: 350px; width: 100%;margin-bottom: 55px;"></div>
+		<div id="chartContainer" style="height: 350px; width: 100%;margin-bottom: 55px;"></div>
+		<div id="chartContainer2" style="height: 350px; width: 100%;margin-bottom: 55px;"></div>
+        <div class="col-lg-6">
+            <h4 id="lyric-title"></h4>
+            <p id="placeholder"></p>
+			<button id="editLyric" class="btn btn-lg btn-primary btn-block" type="button">Edit Lyric</button>
+			<button id="Entertainme" style="background-color: #b73364;margin-top: 15px;" class="btn btn-lg btn-primary btn-block" type="button">Entertain me</button>
+			<button id="ContinueGeneration" type="button" class="btn btn-lg btn-primary btn-block">Generate Lyrics</button>
+			<button id="EditWords" style="background-color: rgba(158, 4, 4, 0.73);margin-top: 15px;" class="btn btn-lg btn-primary btn-block" type="button">Change Words</button>				
+        </div>
+		<div class="col-lg-6" id="progress">
+       		<h4>Progress:</h4>
+			<div id="progressBar" style="background-color: blanchedalmond;">
+			|||||||| 10%
+			</div>
+		</div>
+		<div class="col-lg-6 questionnaire">
+			<script>function updateVisibility(val) {
+				document.getElementById('visibility').value=val; 
+				}function updateMatch(val) {
+				document.getElementById('match').value=val; 
+				}function updateUserControl(val) {
+				document.getElementById('userControl').value=val; 
+				}function updateConsistency(val) {
+				document.getElementById('consistency').value=val; 
+				}function updateErrorPrevention(val) {
+				document.getElementById('errorPrevention').value=val; 
+				}function updateRecognition(val) {
+				document.getElementById('recognition').value=val; 
+				}function updateFlexibility(val) {
+				document.getElementById('flexibility').value=val; 
+				}function updateAesthetic(val) {
+				document.getElementById('aesthetic').value=val; 
+				}function updateHelpUsers(val) {
+				document.getElementById('helpUsers').value=val; 
+				}function updateHelpDoc(val) {
+				document.getElementById('helpDoc').value=val; 
+				}function updateMatch(val) {
+				document.getElementById('match').value=val;}
+			</script>
+			<h4>Visibility of system status</h4>
+			<form class="form-signin" id="reviewform"  role="reviewform">
+                <input type="range" name="rangeInput" min="1" max="5" onchange="updateVisibility(this.value);">
+                <input class="rowinput"  type="text" id="visibility" value="3">
+                <p>1 = bad, 5 = good</p>
+				<h4>Match between system and the real world</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateMatch(this.value);">
+                <input class="rowinput"  type="text" id="match" value="3">
+				<h4>User control and freedom</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateUserControl(this.value);">
+                <input class="rowinput"  type="text" id="userControl" value="3">
+				<h4>Consistency</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateConsistency(this.value);">
+                <input class="rowinput"  type="text" id="consistency" value="3">
+				<h4>Prevent Errors</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateErrorPrevention(this.value);">
+                <input class="rowinput"  type="text" id="errorPrevention" value="3">
+				<h4>Recognition rather than recall</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateRecognition(this.value);">
+                <input class="rowinput"  type="text" id="recognition" value="3">
+				<h4>Flexibility and efficiency of use</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateFlexibility(this.value);">
+                <input class="rowinput"  type="text" id="flexibility" value="3">
+				<h4>Aesthetic and minimalist design</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateAesthetic(this.value);">
+                <input class="rowinput"  type="text" id="aesthetic" value="3">
+				<h4>Help Users recognize, diagnose and recover from errors</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateHelpUsers(this.value);">
+                <input class="rowinput"  type="text" id="helpUsers" value="3">
+				<h4>Help and documentation</h4>
+				<input type="range" name="rangeInput" min="1" max="5" onchange="updateHelpDoc(this.value);">
+                <input class="rowinput"  type="text" id="helpDoc" value="3">
+				<h4>Are you satisfied?</h4>
+                <select name="satisfied" id="satisfied">
+				<option value="yes">Yes</option>
+				<option value="no">No</option>
+				</select>
+				<button id="submitQuestionnaire" type="button" style="margin-top: 15px;" class="btn btn-lg btn-primary btn-block">Submit</button>
+				<button id="showQuestionnaireResults" style="background-color: #b73364;margin-top: 15px;" type="button" class="btn btn-lg btn-primary btn-block">Statistics</button>
+				<p id="questionnaireSubmitted">I received your questionnaire results. Thanks!!</p>
+				<p id="CommentsContainer"></p>
+			</form>
+			
+		</div>
+		<div class="col-lg-6 review">
+            <h4>Is the lyric in context?</h4>
+			<form class="form-signin" id="reviewform"  role="reviewform">
+                <input type="range" name="rangeInput" min="0" max="10" onchange="updateInContext(this.value);">
+                <input class="rowinput"  type="text" id="InContext" value="5">
+                <p>10 = satisfied, 0 = not satisfied</p>
+ 
+                <h4>Has lyric good/matching rhyming words?</h4>
+                <input type="range" name="rangeInput2" min="0" max="10" onchange="updateRhyming(this.value);">
+                <input class="rowinput" type="text" id="Rhyming" value="5">
+				
+				<h4>Will you use this bot again?</h4>
+                <select name="UseAgain" id="UseAgain">
+				<option value="yes">Yes</option>
+				<option value="no">No</option>
+				</select>
+				<button id="submitreview" type="button" style="margin-top: 15px;" class="btn btn-lg btn-primary btn-block">Submit</button>
+				<button id="showStatisctics" style="background-color: #b73364;margin-top: 15px;" type="button" class="btn btn-lg btn-primary btn-block">Statistics</button>
+			    <button id="showQuestionnaire" type="button" style="background-color: #84b733;margin-top: 15px;" class="btn btn-lg btn-primary btn-block">Questionnaire</button>
+				<button id="Submitcomment" style="background-color: #33b7ab;margin-top: 15px;" type="button" class="btn btn-lg btn-primary btn-block">Comment</button>
+			    <button id="Showcomments" style="background-color: #84b733;margin-top: 15px;" type="button" class="btn btn-lg btn-primary btn-block">Show All Comments</button>
+				<p id="commentSubmitted">I received your comment. Thanks!!</p>
+				<textarea id="comment" style="height: 205px !important;width: 100%;margin-top: 10px;"></textarea>
+				<p id="CommentsContainer"></p>
+			</form>
+            <script>function updateInContext(val) {
+				document.getElementById('InContext').value=val; 
+				}function updateRhyming(val) {
+				document.getElementById('Rhyming').value=val;}
+			</script>
+        </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; Concordia University 2017</p>
+        </footer>
+    </div>
+</body>
+</html>

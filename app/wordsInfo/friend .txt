@@ -1,0 +1,1 @@
+<font size='3' color='blue'><b>friend </b></font><br>Number of related <b>lines:</b> 12<br>Number of <b>occurrences:</b> 12<br>

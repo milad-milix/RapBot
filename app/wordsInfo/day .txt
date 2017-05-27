@@ -1,0 +1,1 @@
+<font size='3' color='blue'><b>day </b></font><br>Number of related <b>lines:</b> 44<br>Number of <b>occurrences:</b> 45<br>

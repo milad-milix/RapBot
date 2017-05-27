@@ -1,0 +1,1 @@
+<font size='3' color='blue'><b>money </b></font><br>Number of related <b>lines:</b> 36<br>Number of <b>occurrences:</b> 36<br>
